@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name="reg" method="get" action="test.html" >
+    楼层
+    <select name="floor">
+        <option value="13" selected="selected">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+    </select>
+    单元
+    <select name="unit">
+        <option value="01" selected="selected">1301</option>
+        <option value="02">1302</option>
+        <option value="03">1303</option>
+        <option value="04">1304</option>
+    </select>
+</form>
+<script type="application/javascript">
+    window.onload = function(){
+        var floor = document.reg.floor;
+        floor.onchange = function(){
+            var ops = reg.unit.options;
+            for(var i=0;i<ops.length;i++){
+                ops[i].innerHTML = floor.selectedOptions[0].value+ops[i].value;
+            }
+        }
+    }
+</script>
+</body>
+</html>

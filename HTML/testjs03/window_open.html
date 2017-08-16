@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gbk">
+        <title>广州尚学堂-javascript初级</title>
+        <script>
+            function method(){
+                win01=window.open("http://www.gzsxt.cn", "newwindow", "height=500, width=400, left=300,top=300, toolbar =0,menubar=1, scrollbars=no, resizable=0, location=1, status =no");
+                /*
+                
+                 *
+                
+                 width：以像素为单位指定窗口的宽度；
+                
+                 height：以像素为单位指定窗口的高度；
+                
+                 left：以像素为单位指定窗口距屏幕左边的位置；
+                
+                 top：以像素为单位指定窗口距屏幕顶端的位置；
+                
+                 screenX：设定窗口距离屏幕左边界的像素长度；
+                
+                 screenY：设定窗口距离屏幕上边界的像素长度；
+                
+                 titleBar：指明标题栏是否在新窗口中可见，选项的值及含义与toolbar相同；
+                
+                 toolbar：指定窗口是否有标准工具栏。当该选项的值为1或yes时，表示有标准
+                
+                 工具栏，当该选项的值为0或no时，表示没有标准工具栏；
+                
+                 menubar：指定窗口是否有菜单，选项的值及含义与toolbar相同；
+                
+                 scrollbar：指定当前窗口文档大于窗口时是否有滚动条，选项的值及含义与
+                
+                 toolbar相同；
+                
+                 resizable：指定窗口是否可改变大小，选项的值及含义与toolbar相同；
+                
+                 location：指定窗口是否有地址工具栏，选项的值及含义与toolbar相同；
+                
+                 status：指定窗口是否有状态栏，选项的值及含义与toolbar相同；
+                
+                 
+                
+                 open方法返回的是该窗口的引用。
+                
+                 小技巧：该方法经常用于在打开一个网页时自动打开另一个窗口。 比如：弹出一个广告窗口，或者公告窗口
+                
+                 在子页面中通过window.opener.document，可以获得父页面的document对象。
+                
+                 */
+                
+            }
+            
+            function closeWindow(){
+                win01.close();   //有浏览器差异问题。 
+            
+            }
+        </script>
+    </head>
+    <body>
+		<a href="javascript:void(0);" onclick="method();">window对象测试</a>
+		<a href="javascript:void(0);" onclick="closeWindow();">window对象关闭窗口方法测试</a>    	
+    </body>
+</html>

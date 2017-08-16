@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function test(){
+            console.log(window.frames.length);
+        }
+        function showmsg(msg){
+            alert("i'm your father");
+            document.getElementById("div01").innerHTML=msg;
+        }
+        window.onload = function(){
+            test();
+        }
+        function testson(){
+//            window.frames[0].son();
+            window.frames["f02"].son();
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="call son" onclick="testson()">
+<div id="div01"></div>
+<iframe src="testpage02.html" name="f01"></iframe>
+<iframe src="testpage02.html" name="f02"></iframe>
+</body>
+</html>

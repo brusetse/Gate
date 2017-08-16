@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container{
+            position: relative;
+            width: 751px;
+            height: 455px;
+        }
+        .container .pic{
+            position: absolute;
+            left: 0px;
+            top:0px;
+
+        }
+        .slider-nav {
+            bottom: 10px;
+            height: 9px;
+        }
+        .slider-nav ul {
+            line-height: 1;
+        }
+        .slider-nav li {
+            background: #3e3e3e none repeat scroll 0 0;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            height: 9px;
+            margin: 0 2px;
+            overflow: hidden;
+            text-align: center;
+            width: 9px;
+        }
+        .slider-nav .slider-selected {
+            background: #b61b1f none repeat scroll 0 0;
+            color: #fff;
+        }
+
+        .slider-nav {
+            height: 0;
+            line-height: 0;
+            text-align: center;
+            width: 160px;
+        }
+        .slider-nav li {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            width: 18px;
+            font-size: 12px;
+        }
+
+        .slider-extra{
+            position: absolute;
+            left: 270px;
+            bottom:15px;
+            z-index: 1000;
+        }
+        .slider-nav .onclickselected {
+            background: blue none repeat scroll 0 0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<hr/>
+<hr/>
+<hr/>
+<hr/>
+<div class="container" style="float: left">
+    <div id="allpic">
+        <div class="pic" style="z-index: 1" ><img src="001.jpg" /></div>
+        <div class="pic" style="z-index: 2"><img src="002.jpg" /></div>
+        <div class="pic" style="z-index: 3"><img src="003.jpg" /></div>
+    </div>
+    <div class="slider-extra">
+        <ul class="slider-nav">
+            <li class="slider-item"   >1</li>
+            <li class="slider-item " >2</li>
+            <li class="slider-item">3</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

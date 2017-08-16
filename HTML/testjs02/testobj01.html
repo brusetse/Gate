@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var obj = new Object();
+//        动态语言
+       obj.uname="liudehua"
+       obj.sing=function(){
+           alert("gagag")
+       }
+//        obj.age=58;
+//        console.log(obj.uname)
+//        obj.sing();
+//        delete obj.sing;//只能释放 对象的属性
+//        obj.sing();
+
+        function createObject(uname,age,func){
+            var obj = new Object();
+            obj.uname = uname;
+            obj.age = age;
+            obj.func = func;
+            return obj;
+        }
+        function createCar(uname,age,func){
+            var obj = new Object();
+            obj.uname = uname;
+            obj.age = age;
+            obj.func = func;
+            return obj;
+        }
+        var f = function () {
+            alert(123+123);
+        };
+//        var u1 = createObject("zs",123, f);
+//        u1.func();
+//        console.log(u1 instanceof  Object);
+//        对象生产方式的缺点，很难具体的类
+
+//        构造的人类
+        function Person(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+//        汽车类
+        function Car(mali,pai){
+            this.mali = mali;
+            this.pai = pai;
+        }
+//        var p = Person("a",123);//函数执行 ，不是构造对象
+//        console.log(p)
+
+        var p1 = new Person("gaga",123);
+//        console.log(p1.age)
+//        console.log(p1.uname)
+       window.gzsxt="http://www.gzsxt.cn";
+        console.log(p1 instanceof  Person);
+        var c = new Car("190","宝马");
+        console.log(c instanceof  Car);
+        console.log(c instanceof  Object);
+        console.log(p1 instanceof  Object);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

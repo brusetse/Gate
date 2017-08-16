@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function test(){
+            //Number boolean String
+           // ==弱等不判断类型，值比较
+//            规律：
+//            console.log(123==123);
+//            console.log('a'=='a');
+//
+//            console.log(false=="false");//false
+//            console.log(NaN==NaN);
+//            console.log('0'==0);//true
+//            console.log(1==true);//true
+//
+//            console.log('abc'/0=='abc'/0);//false
+//
+
+//            对象和对象比较的时候比较引用地址！
+
+            console.log([0]=='');//
+            console.log(Number(''));//
+            console.log([0].toString());//
+            console.log([]==[])
+            console.log({}=={})
+
+            console.log(null==undefined)
+            console.log(null=='abc')
+
+        }
+//        test();
+
+        function test02(){
+//            console.log(Number(0))
+//            console.log(Number(true))
+//            console.log(Number(false))
+//            console.log(Number('0'))
+//            console.log(Number('800'))
+//            console.log(Number('1abc'))
+//            console.log(Number('abc'))
+
+            console.log(Boolean(1))
+
+            console.log(Boolean(0))
+            console.log(Boolean(false))
+            console.log(Boolean(''))
+            console.log(Boolean(NaN))
+            console.log(Boolean(undefined))
+            console.log(Boolean(null))
+//            boolean对 对象转换转过来 true
+            console.log(Boolean([1,2,3]))
+        }
+//        test02();
+
+        function test03(){
+            console.log('0'===0)
+        }
+//        test03();
+
+//        两边不全是boolean类型数据，就会往boolean类型转换之后，返回数据
+//        x||y  x转为boolean返回true  直接x  否则返回y
+        function test04(){
+            console.log([1]||true)
+            console.log(false||true)
+            console.log(new Date()||true)
+            console.log('123'||[1,23,4]);
+            console.log(Number('abc'/1)||[1,23,4]);
+        }
+
+//        x&&y 两边不是boolean  ,x为true  返回y   ,反之 返回x
+        function test05(){
+            console.log([1]&&true)
+            console.log(false&&true)
+            console.log(new Date()&&true)
+            console.log('123'&&[1,23,4]);
+            console.log(Number('abc'/1)&&[1,23,4]);
+        }
+        test05();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

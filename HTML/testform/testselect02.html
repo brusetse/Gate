@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form name="reg" method="get" action="test.html" >
+    <select name="floor" id="floorid">
+        <option value="1" selected="selected"  >1楼</option>
+        <option value="14"  >14楼</option>
+        <option value="15">15楼</option>
+        <option value="16">16楼</option>
+    </select>
+    <select name="unit">
+        <option value="0">请选择单元</option>
+    </select>
+</form>
+<script type="application/javascript">
+    var f1u=[101,102,103,104];
+    var f14u=[1401,1402,1403,1404];
+    var f15u=[1501,1502,1503,1504];
+    var f16u=[1601,1602,1603,1604];
+    window.onload=function(){
+        var f = document.reg.floor;//楼层选择元素
+        var u = document.reg.unit;//楼层选择元素
+        for(var i=0;i<f1u.length;i++){
+            var opt = document.createElement("option");
+            opt.value=f1u[i]+i;
+            opt.text=f1u[i]
+            u.options.add(opt);
+        }
+
+        f.onchange=function(){
+            console.log("tttttttttt"+this.value);
+            var fv = this.value;
+            u.options.length=1;
+            if(fv==1){
+                console.log(fv)
+             for(var i=0;i<f1u.length;i++){
+                 var opt = document.createElement("option");
+                 opt.value=f1u[i]+i;
+                 opt.text=f1u[i]
+                 u.options.add(opt);
+             }
+            }else if(fv==14){
+                for(var i=0;i<f14u.length;i++){
+                    var opt = document.createElement("option");
+                    opt.value=f14u[i]+i;
+                    opt.text=f14u[i]
+                    u.options.add(opt);
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

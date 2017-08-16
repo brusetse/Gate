@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h3>基本选择器</h3>
+
+<input type="button" value="test1" id="button1">
+<input type="button" value="test2" id="button2">
+<input type="button" value="test3" id="button3">
+<input type="button" value="test4" id="button4">
+
+<div class="one" id="one">
+    id为one,class为one的div
+    <div class="mini">class为mini</div>
+</div>
+
+<div class="one" id="two" title="test">
+    id为two,class为one,title为test的div
+    <div class="mini" title="other">class为mini,title为other</div>
+    <div class="mini" title="test">class为mini,title为test</div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini"></div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini" title="tesst">class为mini,title为tesst</div>
+</div>
+
+<div style="display: none;" class="none">style的display为"none"的div</div>
+<div class="hide">class为hide的div</div>
+<div>
+    包含input的type为"hidden"的div<input type="hidden" size="8">
+</div>
+
+<script type="application/javascript" src="jquery1.8.3.js"></script>
+<script type="application/javascript">
+    $(function(){
+        //匹配其父元素下的第N个子或奇偶元素 nth-child从1开始的
+        $("#button1").click(function(){
+            $("div.one :nth-child(2)").css("background","red");
+        });
+        //匹配第一个子元素
+        $("#button2").click(function(){
+            $("div.one :first-child").css("background","green");
+        });
+        //匹配最后一个子元素
+        $("#button3").click(function(){
+            $("div.one :last-child").css("background","orange");
+        });
+        //如果某个元素是父元素中唯一的子元素，那将会被匹配
+        $("#button4").click(function(){
+            $("div.one :only-child").css("background","blue");
+        });
+    });
+</script>
+</body>
+</html>

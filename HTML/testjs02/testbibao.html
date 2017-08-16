@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+//        function test01(){
+//            var t= 123;
+//        }
+//        test01();
+//        console.log(t);//局部变量 释放了
+
+//闭包 作用我们能够继续操作局部变量 ，jquery
+//起到封装性的作用  你想暴露出去的，你可以通过闭包代码块 抛出去，
+function test01() {
+            var t= 123;
+            var t1=123;
+            add =function(){
+                t=t+1;
+//                console.log(t);
+                return t;
+            }
+            return add;
+        }
+        var t = test01();
+        console.log(t());
+        console.log(t());
+        console.log(t());
+//        Linux  Redis(新浪微博 ，内存数据库)；
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

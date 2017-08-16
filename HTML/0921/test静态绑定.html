@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .big{
+            width: 200px;
+            height: 200px;
+            background-color: #0000FF;
+        }
+        .tiny{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script type="application/javascript">
+        function test(){
+            var divb = document.getElementById("divb");
+            console.log(divb);
+            divb.onclick = testbig;
+            var divt = document.getElementById("divt");
+            console.log(divt);
+            divt.onclick = testtiny;
+        }
+        function testbig(){
+            console.log("big");
+        }
+        function testtiny(){
+            console.log("tiny");
+        }
+        window.onload = function(){
+            var input01 = document.getElementById("input01");
+            input01.onclick = test;//将按钮绑定上点击事件
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="绑定事件" id = "input01">
+<div class="big" id="divb">
+    <div>aaaa</div>
+    <div class="tiny" id="divt">bbbb</div>
+    <div>cccc</div>
+</div>
+</body>
+</html>

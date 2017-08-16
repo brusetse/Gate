@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h3>基本选择器</h3>
+
+<input type="button" value="test1" id="button1">
+<input type="button" value="test2" id="button2">
+<input type="button" value="test3" id="button3">
+<input type="button" value="test4" id="button4">
+<input type="button" value="test5" id="button5">
+<input type="button" value="test6" id="button6">
+<input type="button" value="test7" id="button7">
+
+<div class="one" id="one">
+    id为one,class为one的div
+    <div class="mini">class为mini</div>
+</div>
+
+<div class="one" id="two" title="test">
+    id为two,class为one,title为test的div
+    <div class="mini" title="other">class为mini,title为other</div>
+    <div class="mini" title="test">class为mini,title为test</div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini"></div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini" title="tesst">class为mini,title为tesst</div>
+</div>
+
+<div style="display: none;" class="none">style的display为"none"的div</div>
+<div class="hide">class为hide的div</div>
+<div>
+    包含input的type为"hidden"的div<input type="hidden" size="8">
+</div>
+
+<script type="application/javascript" src="jquery1.8.3.js"></script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        //匹配包含给定属性的元素。
+        $("#button1").click(function(){
+            $("div[title]").css("background","red");
+        });
+        //匹配给定的属性是某个特定值的元素
+        $("#button2").click(function(){
+            $("div[title='test']").css("background","green");
+        });
+        //匹配所有不含有指定的属性，或者属性不等于特定值的元素
+        $("#button3").click(function(){
+            $("div[title!='test']").css("background","orange");
+        });
+        //匹配给定的属性是以某些值开始的元素
+        $("#button4").click(function(){
+            $("div[title^='test']").css("background","blue");
+        });
+        //匹配给定的属性是以某些值结尾的元素
+        $("#button5").click(function(){
+            $("div[title$='test']").css("background","pink");
+        });
+        //匹配给定的属性是以包含某些值的元素
+        $("#button6").click(function(){
+            $("div[title*='st']").css("background","#abcdef");
+        });
+        //复合属性选择器，需要同时满足多个条件时使用
+        $("#button7").click(function(){
+            $("div[id][title^='t'][title$='t']").css("background","#fedcba");
+        });
+    });
+</script>
+</body>
+</html>

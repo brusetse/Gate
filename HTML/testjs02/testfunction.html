@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function test(a,b){
+            console.log(a+b);
+            return a+b;
+        }
+
+//        test(1,2);
+//        函数也是对象
+        var add = function(a,b,c){
+            return a+b+c;
+        }
+        function add02(a,b){
+            alert(a+b);
+        }
+        //        不是所有的浏览器都有 console ，你代码调试完了之后建议删除console;
+//        console.log(add(1,2,3));
+        var add02 = new Function("a","b","alert(a+b)");
+
+//        add02(123,123);
+//        在js里面声明函数 本质 构造Function 对象
+
+        function test01(){
+            alert("2222");
+        }
+        var test01=function(){
+            alert("111");
+        }
+
+        test01();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

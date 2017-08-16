@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var a;
+        function testif(a){
+            if(a>100){
+                console.log("a大于100")
+            }else if(a<100){
+                console.log("a小于100")
+            }else{
+                console.log("a等于100")
+            }
+            u = 1000;
+        }
+//        testif(100);
+//        执行函数后，全局变量u就被初始化，可以调用
+//        console.log(u);
+
+//        json声明
+//        var user={uname:"safg",usal:100,uage:20};
+//        console.log(user.uname);
+//        console.log(user.usal);
+//        console.log(user.uage);
+//        var users=[user,"abc",true];
+//
+//        for(var u in user){
+//            console.log(u,user[u]);
+//        }
+//        for(var i=0;i<users.length;i++){
+//            console.log(users[i])
+//        }
+
+        function testswitch(a){
+            switch(a){
+                case 1:console.log("a等于1");
+                    break;
+                case 2:console.log("a等于2");
+                    break;
+                case 3:console.log("a等于3");
+                    break;
+                default :console.log("default")
+            }
+        }
+    testswitch(1)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

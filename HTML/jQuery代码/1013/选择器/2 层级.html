@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h3>基本选择器</h3>
+
+<input type="button" value="test1" id="button1">
+<input type="button" value="test2" id="button2">
+<input type="button" value="test3" id="button3">
+<input type="button" value="test4" id="button4">
+
+<div class="one" id="one">
+    id为one,class为one的div
+    <div class="mini">class为mini</div>
+</div>
+
+<div class="one" id="two" title="test">
+    id为two,class为one,title为test的div
+    <div class="mini" title="other">class为mini,title为other</div>
+    <div class="mini" title="test">class为mini,title为test</div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini"></div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini" title="tesst">class为mini,title为tesst</div>
+</div>
+
+<div style="display: none;" class="none">style的display为"none"的div</div>
+<div class="hide">class为hide的div</div>
+<div>
+    包含input的type为"hidden"的div<input type="hidden" size="8">
+</div>
+
+<script type="application/javascript" src="jquery1.8.3.js"></script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        //在给定的祖先元素下匹配所有的后代元素
+        $("#button1").click(function(){
+            $("body div").css("background","red");
+        });
+        //在给定的父元素下匹配所有的子元素
+        $("#button2").click(function(){
+            $("body > div").css("background","green");
+        });
+        //匹配所有紧接在 prev 元素后的 next 元素
+        $("#button3").click(function(){
+            $(".one + div").css("background","orange");
+        });
+        //匹配 prev 元素之后的所有 siblings 元素
+        $("#button4").click(function(){
+            $("#two ~ div").css("background","blue");
+        });
+
+    });
+</script>
+</body>
+</html>

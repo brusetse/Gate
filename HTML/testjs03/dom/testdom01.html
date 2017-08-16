@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style type="text/css">
+    .bigdiv{
+        width: 300px;
+        height: 500px;
+        border: solid red 1px;
+
+    }
+    .tiny{
+        background-color: #0000FF;
+        font-size: 14px;
+
+    }
+</style>
+<script type="application/javascript">
+    function testdom01(){
+        var ele1=document.getElementById("diva");
+        ele1.style.display="none";
+    }
+    function testtagname(){
+        var eles = document.getElementsByTagName("div");
+        for(var i=0;i<eles.length;i++){
+//        console.log(eles.length);
+//          console.log(eles[i].innerHTML);
+            //元素 nodeName 标签名  nodeValue null   元素类型 nodeType =1
+            console.log(eles[i].nodeName,eles[i].nodeValue,eles[i].nodeType)
+        }
+    }
+    window.onload=function(){
+//        testtagname();
+//        testdom03();
+//
+//     testdom04()
+        testName()
+    }
+
+
+    function testdom03(){
+        var ele1=document.getElementById("diva");
+        var childs = ele1.childNodes;
+        for(var i=0;i<childs.length;i++){
+            //元素 nodeName 标签名  nodeValue null   元素类型 nodeType =1
+            //文本节点  nodename #text nodevalue 文本值  nodetype=3;
+            console.log(childs[i].nodeName,childs[i].nodeValue,childs[i].nodeType)
+        }
+    }
+    function testdom04(){
+        var ele1=document.getElementById("bigdivid");
+//        console.log(ele1.firstElementChild)
+//        console.log(ele1.firstChild)
+         console.log(ele1.lastElementChild)
+         console.log(ele1.lastChild)
+
+
+//        var attrs = ele1.attributes;
+//        for(var i=0;i<attrs.length;i++){
+//            console.log(attrs[i].nodeName,attrs[i].nodeValue,attrs[i].nodeType)
+//        }
+//        var childs = ele1.childNodes;
+//        for(var i=0;i<childs.length;i++){
+//            //元素 nodeName 标签名  nodeValue null   元素类型 nodeType =1
+//            //文本节点  nodename #text nodevalue 文本值  nodetype=3;
+//            console.log(childs[i].nodeName,childs[i].nodeValue,childs[i].nodeType)
+//        }
+    }
+
+    function testName(){
+//        var favs = document.getElementsByName("favs")
+//        for(var i=0;i<favs.length;i++){
+//            console.log(favs[i].value)
+//        }
+        var  diva = document.getElementById("diva");
+        diva.parentNode.style.display="none"
+    }
+
+    function showdiv(){
+        var  diva = document.getElementById("diva");
+        diva.parentNode.style.display="block"
+    }
+</script>
+<body>
+<input type="button" value="隐藏" onclick="testdom01();">
+<input type="button" value="隐藏" onclick="testName();">
+<input type="button" value="显示" onclick="showdiv();">
+<div class="bigdiv" id="bigdivid">
+    <div class="tiny" id="diva">aaaa</div>
+    <div>bbbb</div>
+    <div  >cccc</div>
+</div>
+
+<form action="testdom01.html" method="get" enctype="application/x-www-form-urlencoded">
+    爱好：
+    <input type="checkbox" value="1" name="favs">打游戏
+    <input type="checkbox" value="2" name="favs"> 吃饭
+    <input type="checkbox" value="3" name="favs"> 打球
+
+</form>
+</body>
+</html>

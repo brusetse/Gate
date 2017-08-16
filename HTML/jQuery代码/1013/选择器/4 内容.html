@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<h3>基本选择器</h3>
+
+<input type="button" value="test1" id="button1">
+<input type="button" value="test2" id="button2">
+<input type="button" value="test3" id="button3">
+<input type="button" value="test4" id="button4">
+
+<div class="one" id="one">
+    id为one,class为one的div
+    <div class="mini">class为mini</div>
+</div>
+
+<div class="one" id="two" title="test">
+    id为two,class为one,title为test的div
+    <div class="mini" title="other">class为mini,title为other</div>
+    <div class="mini" title="test">class为mini,title为test</div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini"></div>
+</div>
+
+<div class="one">
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini">class为mini</div>
+    <div class="mini" title="tesst">class为mini,title为tesst</div>
+</div>
+
+<div style="display: none;" class="none">style的display为"none"的div</div>
+<div class="hide">class为hide的div</div>
+<div>
+    包含input的type为"hidden"的div<input type="hidden" size="8">
+</div>
+
+<script type="application/javascript" src="jquery1.8.3.js"></script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        //匹配包含给定文本的元素
+        $("#button1").click(function(){
+            $("div:contains('test')").css("background","red");
+        });
+        //匹配所有不包含子元素或者文本的空元素
+        $("#button2").click(function(){
+            $("div:empty").css("background","green");
+        });
+        //匹配含有选择器所匹配的元素的元素
+        $("#button3").click(function(){
+            $("div:has(.mini)").css("background","orange");
+        });
+        //匹配含有子元素或者文本的元素
+        $("#button4").click(function(){
+            $("div:parent").css("background","blue");
+        });
+    });
+</script>
+</body>
+</html>

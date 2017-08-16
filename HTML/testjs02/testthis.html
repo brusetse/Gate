@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var t1 = 123;
+        var t3 = "gaag";
+        function test(){
+            this.t1 = "gagaga";
+        }
+        function test1(){
+            this.t1 = "gagaga1";
+        }
+//        this 指向window 对象
+                window.test();
+                console.log(t1);//123
+
+//        var p = new test();
+//        console.log(t1);//
+//        console.log(p.t1);//
+    </script>
+</head>
+<body>
+
+</body>
+</html>

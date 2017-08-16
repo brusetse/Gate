@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+		<title></title>
+		<script>
+			function testClick(){
+				alert("click");
+			}
+			function testDbclick(){
+				alert("double click!");
+			}
+			function testBlur(){
+				alert("testOnblur");
+			}
+			function testFocus(){
+				//alert("testFocus");
+				console.debug("focus")
+			}
+			function testChange(){
+				alert("testChange");
+			}
+			function testMouseMove(){
+				alert("onmousemove");
+			}
+			//			页面加载完成时触发
+			function testLoad(){
+				alert("load");
+			}
+			
+
+			
+			function testUnload(){
+				alert("Unload");
+			}
+			function testmouse(){
+				console.log("testgaga");
+			}
+			function testonkeyup(){
+				console.log("testonkeyup")
+			}
+		</script>
+	</head>
+	<body onload="testLoad();"  onunload="testUnload();">
+		<a href="#"  onclick="testClick();">测试onclick</a>   <br><br>
+		<a href="#" ondblclick="testDbclick();">测试ondblclick</a>   <br><br>
+		<a href="#" onmousemove="testMouseMove();">测试onmousemove</a>   <br><br>
+		<input type="text" name="t3"  value="测试onFocus"  onfocus="testFocus()"/>
+		<input type="text" name="t1" value="测试onblur"   onblur="testBlur()"/>
+		<input type="text" name="t2"  value="测试onChange"  onchange="testChange()"/>
+		<input type="text" name="t3"  value="onkeyup"  onkeyup="testonkeyup()"/>
+	<div onmouseout="testmouse();" style="width: 200px;height: 200px;border: 1px solid red ">abc</div>
+	<form action="testbubble.html">
+		<input type="submit" value="test">
+	</form>
+	</body>
+</html>

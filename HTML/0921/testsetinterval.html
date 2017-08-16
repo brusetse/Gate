@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var count = 0;
+        var tid;
+        function test(){
+            console.log(count++);
+        }
+        function add(a,b){
+            console.log(a+b+(count++));
+        }
+        window.onload = function(){
+            //            每间隔多久执行一次函数
+//            window.setInterval(test,1000);
+            tid = window.setInterval(function(){add(1,1)},1000);
+        }
+        function stopinterval(){
+            window.clearInterval(tid)
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="stop" onclick="stopinterval()">
+</body>
+</html>

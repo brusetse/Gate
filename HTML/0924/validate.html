@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="123.html" method="get" name="forms">
+    用户名：<input type="text" name="username"><span id="u1" style="color:red"></span><br>
+    密码：<input type="text" name="password"><span id="pw1" style="color: red"></span><br>
+    确认密码：<input type="text" name="passwordconfirm"><span id="pw2" style="color:red"></span><br>
+    爱好：<input type="checkbox" name="hobby">学java
+    <input type="checkbox" name="hobby">用java
+    <input type="checkbox" name="hobby">教java<span id="h1" style="color:red"></span><br>
+    <input type="submit" value="注册" onclick="return test()">
+    <input type="reset" value="重置">
+</form>
+
+<script type="application/javascript">
+    function test(){
+        var forms = document.forms;
+        var usernamev = forms.username.value;
+        var usernameflag = true;
+        var u1 = document.getElementById("u1");
+        u1.innerHTML = "";
+        if(usernamev.length<5||usernamev.length>10){
+            usernameflag = false;
+            u1.innerHTML = "用户名长度必须在5到10之间！"
+        }
+        var passwordflag = true;
+        var passwordv = forms.password.value;
+        var pw1 = document.getElementById("pw1");
+        pw1.innerHTML = "";
+        if(passwordv.length<5||passwordv.length>10){
+            passwordflag = false;
+            pw1.innerHTML = "密码长度必须在5到10之间！"
+        }
+        var passwordconfirmflag = true;
+        var passwordconfirmv = forms.passwordconfirm.value;
+        var pw2 = document.getElementById("pw2");
+        pw2.innerHTML = "";
+        if(passwordconfirmv!=passwordv){
+            passwordconfirmflag = false;
+            pw2.innerHTML = "确认密码不一致！"
+        }
+        var hobbyflag = false;
+        var hobby = forms.hobby;
+        var h1 = document.getElementById("h1");
+        h1.innerHTML = "";
+        for(var i=0;i<hobby.length;i++){
+            if(hobby[i].checked == true){
+                hobbyflag = true;
+                break;
+            }
+        }
+        if(!hobbyflag){
+            h1.innerHTML = "至少选择一个爱好！"
+        }
+        return usernameflag&&passwordflag&&passwordconfirmflag&&hobbyflag;
+    }
+</script>
+</body>
+</html>

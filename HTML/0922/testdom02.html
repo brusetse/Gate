@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .p1{
+            background-color: #0000FF;
+        }
+    </style>
+    <script type="application/javascript">
+        function test01(){
+            var div01 = document.getElementById("div01");
+            var div003 = document.getElementById("div003");
+//            div01.appendChild(div003);//添加结点
+            var newdiv003 = div003.cloneNode(true);//克隆结点
+            div01.appendChild(newdiv003);
+        }
+        function test02(){
+            var newdiv = document.createElement("div");//创建元素结点
+            newdiv.innerHTML = "创建新元素"
+            var div01 = document.getElementById("div01");
+            var divc = document.getElementById("divc");
+//            div01.appendChild(newdiv);
+            div01.insertBefore(newdiv,divc);//在指定结点前插入子结点
+        }
+        function test03(){
+            var newdiv = document.createElement("div");//创建元素结点
+            newdiv.innerHTML = "创建新元素"
+            var div01 = document.getElementById("div01");
+            var divc = document.getElementById("divc");
+            div01.replaceChild(newdiv,divc);//取代子结点
+        }
+        function test04(){
+            var divc = document.getElementById("divc");
+            divc.parentNode.removeChild(divc);//删除子结点，如果要删除自己，需要先调用父节点
+        }
+        //动态绑定事件
+        function test05(){
+            var div02 = document.getElementById("div02");
+            var eles = getChildElement(div02);
+            for(var i = 0 ; i < eles.length ; i++){
+                eles[i].onmouseover = function(){
+                    this.className = "p1";
+                }
+                eles[i].onmouseout = function(){
+                    this.className = "";
+                }
+            }
+        }
+        function getChildElement(par){
+            var childs = par.childNodes;
+            var eles = [];
+            for(var i = 0 ; i < childs.length ; i++){
+                if(childs[i].nodeType == 1){
+                    eles.push(childs[i])
+                }
+            }
+            return eles;
+        }
+    </script>
+</head>
+<body>
+<div id="div01">
+    <div>aaaa</div>
+    <div>bbbb</div>
+    <div id="divc">cccc</div>
+    <div>dddd</div>
+    <div>eeee</div>
+</div>
+<hr/>
+<div id="div02">
+    <div>1111</div>
+    <div>2222</div>
+    <div id="div003">3333</div>
+    <div>4444</div>
+    <div>5555</div>
+</div>
+<input type="button" value="添加结点" onclick="test01()">
+<input type="button" value="插入新元素" onclick="test02()">
+<input type="button" value="取代结点" onclick="test03()">
+<input type="button" value="删除子结点" onclick="test04()">
+<input type="button" value="动态绑定事件" onclick="test05()">
+</body>
+</html>

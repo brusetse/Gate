@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container{
+            position: relative;
+            width: 730px;
+            height: 455px;
+        }
+        .container .pic{
+            position: absolute;
+            left: 0px;
+            top:0px;
+
+        }
+        .slider-nav {
+            bottom: 10px;
+            height: 9px;
+        }
+        .slider-nav ul {
+            line-height: 1;
+        }
+        .slider-nav li {
+            background: #3e3e3e none repeat scroll 0 0;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            height: 9px;
+            margin: 0 2px;
+            overflow: hidden;
+            text-align: center;
+            width: 9px;
+        }
+        .slider-nav .slider-selected {
+            background: #b61b1f none repeat scroll 0 0;
+            color: #fff;
+        }
+
+        .slider-nav {
+            height: 0;
+            line-height: 0;
+            text-align: center;
+            width: 160px;
+        }
+        .slider-nav li {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            width: 18px;
+            font-size: 12px;
+        }
+
+        .slider-extra{
+            position: absolute;
+            left: 270px;
+            bottom:15px;
+            z-index: 1000;
+        }
+        .slider-nav .onclickselected {
+            background: blue none repeat scroll 0 0;
+            color: #fff;
+        }
+
+
+        .slider-page a {
+            background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+            color: #fff;
+            display: block;
+            font-family: simsun;
+            font-size: 22px;
+            font-weight: 400;
+            height: 62px;
+            line-height: 62px;
+            margin-top: -31px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 28px;
+            z-index: 1;
+            text-decoration: none;
+        }
+        .slider-page a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        .slider-prev {
+            left: 0;
+        }
+        .slider-next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="containerid" class="container" style="float: left">
+    <div id="allpic">
+        <div class="pic"   ><img src="001.jpg" /></div>
+        <div class="pic"  ><img src="002.jpg" /></div>
+        <div class="pic"  ><img src="003.jpg" /></div>
+    </div>
+    <div class="slider-page" id="sliderpageid" >
+        <a class="slider-prev" href="javascript:void(0)">&lt;</a>
+        <a class="slider-next" href="javascript:void(0)">&gt;</a>
+    </div>
+    <div class="slider-extra">
+        <ul class="slider-nav" id="navids">
+            <li class="slider-item"   >1</li>
+            <li class="slider-item " >2</li>
+            <li class="slider-item">3</li>
+        </ul>
+
+    </div>
+</div>
+
+<script type="application/javascript">
+        var num = 0;//现在哪一张图片
+        var maxZindex=999;
+        var delayTime=2000;
+        var tid=0;
+        var slowid=0;
+        var maximg=0;
+        function chanagePic(navnum){
+            var allpic = document.getElementById("allpic");
+            var imgcs = getElementChild(allpic );
+            maximg = imgcs.length;
+//            var navele =getElementChild( document.getElementById("navids"));
+            var navele =getElementChildClearClassName( document.getElementById("navids"),"slider-item");
+//            undefined null
+            if(navnum>0){
+                num=navnum-1;
+                //鼠标手动滑动上去
+                console.log("传进来的数据",navnum,num);
+                clearTimeout(tid);
+            }
+            for(var i=0;i<imgcs.length;i++){
+                if(i==num){
+                    imgcs[i].style.display="block"
+                }else{
+                    imgcs[i].style.display="none";
+                }
+            }
+            navele[num].className="slider-selected";
+
+            if(num>=(imgcs.length-1)){
+                num=0
+            }else{
+                num++;
+            }
+            console.log("num="+num)
+//            根据tid可以清楚定时器
+            if(navnum==0){
+                tid= window.setTimeout(function(){
+                    chanagePic(0)
+                },delayTime)
+            }
+        }
+
+        window.onload=function(){
+            //0表示时间定时器自动控制
+          chanagePic(0);
+            bindnavevent();
+            sliderpage();
+        }
+
+        function bindnavevent(){
+            var navele =getElementChild( document.getElementById("navids"));
+            for(var i=0;i<navele.length;i++){
+                navele[i].onmouseover=function(){
+//                    console.log("鼠标划上来",this.innerHTML)
+//                    控制显示哪一张图片 手动控制图片展示
+                    clearTimeout(tid)
+                    var that = this;
+                    //this 指向  谁持有了函数对象 他就指向谁
+                   slowid= window.setTimeout(function(){
+                       console.log(that.innerHTML)
+                       chanagePic(that.innerHTML);
+                    },300)
+                }
+                navele[i].onmouseout=function(){
+//                    console.log("鼠标移动出去")
+//                    控制显示哪一张图片 手动控制图片展示
+//                    chanagePic(0);
+                    clearTimeout(slowid);
+                    //鼠标移动出来之后 启动自动切换图片
+                    tid= window.setTimeout(function(){
+                        chanagePic(0)
+                    },delayTime)
+                }
+            }
+
+        }
+    function getElementChild(pele){
+        var childs = pele.childNodes;
+        var elelist = [];//new Array();
+        for(var i=0;i<childs.length;i++){
+            if(childs[i].nodeType==1){
+                elelist.push(childs[i])
+            }
+        }
+        return elelist;
+    }
+
+    function getElementChildClearClassName(pele,className){
+        var childs = pele.childNodes;
+        var elelist = [];//new Array();
+        for(var i=0;i<childs.length;i++){
+            if(childs[i].nodeType==1){
+                childs[i].className=className
+                elelist.push(childs[i])
+            }
+        }
+        return elelist;
+    }
+
+    function  sliderpage(){
+        var container= document.getElementById("containerid");
+        var sliderpage= document.getElementById("sliderpageid");
+        container.onmouseover=function(){
+            sliderpage.style.display="block"
+        }
+        container.onmouseout=function(){
+            sliderpage.style.display="none"
+        }
+
+        var eles =getElementChild(sliderpage);
+        //left
+        eles[0].onclick=function(){
+            //right
+            //停在第一张图片 num=1  navnum=3
+            //停在第二张图片 num=2   navnum=1
+            //停在第三张图片 num=0  navnum=2
+            var num01 = --num;
+            num01 = num01==0?maximg:num01;
+            num01 = num01==-1?(maximg-1):num01
+            chanagePic(num01);
+        }
+        eles[1].onclick=function(){
+            chanagePic(++num);
+        }
+
+        eles[0].onmouseover=function(){
+            clearTimeout(tid);
+        }
+        eles[0].onmouseout=function(){
+            tid= window.setTimeout(function(){
+                chanagePic(0)
+            },delayTime)
+        }
+
+
+        eles[1].onmouseover=function(){
+            clearTimeout(tid);
+        }
+        eles[1].onmouseout=function(){
+            tid= window.setTimeout(function(){
+                chanagePic(0)
+            },delayTime)
+        }
+    }
+</script>
+</body>
+</html> 

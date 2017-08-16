@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container{
+            position: relative;
+            width: 730px;
+            height: 454px;
+        }
+        .container .pic{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        .slider-nav {
+            bottom: 10px;
+            height: 9px;
+        }
+        .slider-nav ul {
+            line-height: 1;
+        }
+        .slider-nav li {
+            background: #3e3e3e none repeat scroll 0 0;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            height: 9px;
+            margin: 0 2px;
+            overflow: hidden;
+            text-align: center;
+            width: 9px;
+        }
+        .slider-nav {
+            height: 0;
+            line-height: 0;
+            text-align: center;
+            width: 180px;
+        }
+        .slider-nav li {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            width: 18px;
+        }
+        .slider-nav .onclickselected {
+            background: blue none repeat scroll 0 0;
+            color: #fff;
+        }
+        .slider-nav .slider-selected {
+            background: #b61b1f none repeat scroll 0 0;
+            color: #fff;
+        }
+        .extra{
+            position: absolute;
+            z-index: 100;
+            left: 235px;
+            bottom: 15px;
+        }
+
+
+
+        .slider-page a {
+            background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+            color: #fff;
+            display: block;
+            font-family: simsun;
+            font-size: 22px;
+            font-weight: 400;
+            height: 62px;
+            line-height: 62px;
+            margin-top: -31px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            width: 28px;
+            z-index: 1;
+        }
+        .slider-page a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        .slider-prev {
+            left: 0;
+            text-decoration: none;
+        }
+        .slider-next {
+            right: 0;
+            text-decoration: none;
+        }
+    </style>
+    <script type="application/javascript">
+        var i = 0;
+        var flag = 1;
+        function loop(){
+            var jpgs = document.getElementById("jpgs");
+            var eles = getChildElement(jpgs);
+            if(flag>0){
+                showjpg();
+                nav();
+                i++;
+            }
+            if(i==eles.length){
+                i=0;
+            }
+            flag02 = 1;
+        }
+        function showjpg(){
+            var jpgs = document.getElementById("jpgs");
+            var eles = getChildElement(jpgs);
+            eles[i].style.display = "block";
+            for(var j = 0;j<eles.length;j++){
+                if(j!=i){
+                    eles[j].style.display = "none";
+                }
+            }
+        }
+        function nav(){
+            var oo = document.getElementById("oo");
+            var eles = getChildElement(oo);
+            eles[i].className = 'slider-selected';
+            for(var j = 0;j<eles.length;j++){
+                if(j!=i){
+                    eles[j].className = '';
+                }
+            }
+        }
+        function mouse(){
+            var oo = document.getElementById("oo");
+            var eles = getChildElement(oo);
+            console.log(eles.length);
+            for(var k = 0 ; k < eles.length ; k++){
+                eles[k].onmouseover = function(){
+                    console.log(eles.indexOf(this));
+                    i = eles.indexOf(this);
+//                    this.className='slider-selected';
+                    flag = 0;
+                    tid = window.setTimeout(showjpg,500);
+//                    showjpg();
+                    nav();
+                }
+                eles[k].onmouseout = function(){
+//                    this.className = "";
+                    window.clearTimeout(tid);
+                    nav();
+                    flag = 1;
+                }
+                eles[k].onclick = function(){
+                    this.className='onclickselected';
+                }
+            }
+        }
+        window.onload = function(){
+            turnpage();
+            mouse();
+            loop();
+            window.setInterval(loop,2000);
+        }
+        function getChildElement(par){
+            var childs = par.childNodes;
+            var eles = [];
+            for(var i = 0 ; i < childs.length ; i++){
+                if(childs[i].nodeType == 1){
+                    eles.push(childs[i])
+                }
+            }
+            return eles;
+        }
+        function turnpage(){
+            var jpgs = document.getElementById("jpgs");
+            var eles = getChildElement(jpgs);
+            var sprev = document.getElementById("sprev");
+            var snext = document.getElementById("snext");
+            snext.onclick = function(){
+                if(i<eles.length-1){
+                    i++;
+                }else{
+                    i=0;
+                }
+                showjpg();
+                nav();
+            }
+            sprev.onclick = function(){
+                if(i>0){
+                    i--;
+                }else{
+                    i = eles.length-1;
+                }
+                showjpg();
+                nav();
+            }
+            snext.onmouseover = function(){
+                flag = 0;
+            }
+            snext.onmouseout = function(){
+                flag = 1;
+            }
+            sprev.onmouseover = function(){
+                flag = 0;
+            }
+            sprev.onmouseout = function(){
+                flag = 1;
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container" style="float: left">
+    <div id="jpgs">
+    <div class="pic"><img src="1.jpg" /></div>
+    <div class="pic"><img src="2.jpg" /></div>
+    <div class="pic"><img src="3.jpg" /></div>
+    <div class="pic"><img src="4.jpg" /></div>
+    <div class="pic"><img src="5.jpg" /></div>
+    <div class="pic"><img src="6.jpg" /></div>
+    </div>
+    <div class="slider-page" >
+        <a class="slider-prev" href="javascript:void(0)" id="sprev">&lt;</a>
+        <a class="slider-next" href="javascript:void(0)" id="snext">&gt;</a>
+    </div>
+    <div class="extra">
+        <ul class="slider-nav" id='oo'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

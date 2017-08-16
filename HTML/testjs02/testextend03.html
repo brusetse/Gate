@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.go=function(){
+                console.log("能跑！")
+            }
+        }
+
+        function Man(gender){
+            this.gender = gender;
+            //call  apply 去调用当前函数 第一个参数就是是哪一个对象调用这个函数，后面的参数  当前这个函数需要传入的参数
+//            Person.call(this,"gaga",123);
+            Person.apply(this,["gaga123",88])
+        }
+        var m1 = new Man("m");
+        console.log(m1.name)
+        console.log(m1)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

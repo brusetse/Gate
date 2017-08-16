@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+//        function test01(){
+//            var t1 = 100;
+//        }
+//        test01();
+//        console.log(t1);//局部变量被释放，无法使用
+
+//闭包 作用我们能够继续操作局部变量 ，jquery
+//起到封装性的作用  你想暴露出去的，你可以通过闭包代码块 抛出去，
+        function test02(){
+            var t2 = 100;
+            var add = function(){
+                t2 = t2 + 1;
+                return t2;
+            }
+            return add;
+        }
+        var t2 = test02();
+        console.log(t2());
+        console.log(t2());
+        console.log(t2());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

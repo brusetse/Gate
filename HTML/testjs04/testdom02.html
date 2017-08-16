@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .selected{
+            background-color: #2aabd2;
+        }
+        .selecteout{
+            background-color: #0000FF;
+        }
+    </style>
+</head>
+<body>
+<div id="divbig01">
+    <div>aaaa</div>
+    <div>bbbb</div>
+    <div id="divc">cccc</div>
+    <div>dddd</div>
+    <div>eeee</div>
+</div>
+<hr/>
+<div id="bigdiv02">
+    <div>1111</div>
+    <div>2222</div>
+    <div id="div03">3333</div>
+    <div>44444</div>
+
+    <div>55555</div>
+</div>
+<input type="button" value="测试添加" onclick="test01()">
+<input type="button" value="测试添加before" onclick="test02()">
+<input type="button" value="动态绑定事件" onclick="test03()">
+<input type="button" value="test04" onclick="test04()">
+<input type="button" value="test05" onclick="test05()">
+<script type="application/javascript">
+    function test01(){
+        var db01 = document.getElementById("divbig01");
+        var div03 = document.getElementById("div03");
+//        db01.appendChild(div03)
+        var newdiv03 = div03.cloneNode(true);
+        db01.appendChild(newdiv03);
+
+    }
+    var count=0;
+    function test02(){
+        var db01 = document.getElementById("divbig01");
+        var divc = document.getElementById("divc");
+        var d01 = document.createElement("div");//创建div元素
+        d01.innerHTML="我是新创建的元素"+(++count);
+        d01.onclick= function () {
+            alert(d01.innerHTML);
+        }
+        db01.insertBefore(d01,divc);
+
+    }
+
+    function test03(){
+        var bigdiv02 = document.getElementById("bigdiv02");
+//        bigdiv02.childNodes;//包含 文本节点
+        var elecs = getChildElement(bigdiv02);
+
+        for(var i=0;i<elecs.length;i++){
+//            var ele =elecs[i]  不行
+            elecs[i].onmouseover=function(){
+                this.className="selected";
+            }
+            elecs[i].onmouseout=function(){
+                this.className="selecteout";
+            }
+
+        }
+    }
+    function getChildElement(pele){
+        var childs = pele.childNodes;
+        var elelist=[];
+        for(var i=0;i<childs.length;i++){
+            if(childs[i].nodeType==1){
+                elelist.push(childs[i])
+            }
+        }
+        return elelist;
+    }
+
+
+
+
+    function test04(){
+        var db01 = document.getElementById("divbig01");
+        var divc = document.getElementById("divc");
+        var d01 = document.createElement("div");//创建div元素
+        d01.innerHTML="我是新创建的元素"+(++count);
+        db01.replaceChild(d01,divc);
+    }
+    function test05(){
+        var divc = document.getElementById("divc");
+        divc.parentNode.removeChild(divc)
+
+    }
+//    window.onload=function(){
+//        test01()
+//    }
+</script>
+</body>
+</html>

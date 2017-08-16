@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<link rel="stylesheet" href="test.css">
+<body>
+
+<form action="https://www.baidu.com" name="searchformname" id="searchform">
+    <fieldset>
+        <a href="https://www.baidu.com/" id="imgid"><img  src="img/baidu.png" alt="百 度"></a><input name="q"><input value="搜索" id="searchid" type="submit">
+        <!--<a href="http://ai.taobao.com/?pid=mm_28347190_2425761_13466329"><img alt="淘 宝" src="img/taobao_shopping-446.png"></a><input name="q"><input type="submit" value="搜索">-->
+        <!--<a href="http://ai.taobao.com/?pid=mm_28347190_2425761_13466329"><img alt="淘 宝" src="img/360.png" style="width: 86px"></a><input name="q"><input type="submit" value="搜索">-->
+    </fieldset>
+    <fieldset>
+        <label><input type="radio" checked="checked" value="baidu" name="engine">百 度</label>
+        <label><input type="radio" name="engine" value="360">360</label>
+        <label><input type="radio" name="engine" value="taobao">淘 宝</label>
+    </fieldset>
+</form>
+
+<script type="application/javascript">
+//    var bdurl ="https://www.baidu.com/s?wd="
+//    var url360="https://www.so.com/s?q="
+//    var urltb="http://ai.taobao.com/search/index.htm?key="
+    var list = ['baidu','360','taobao'];
+    var listurlhome = ["https://www.baidu.com/","http://www.so.com","http://ai.taobao.com"];
+   /* function search(){
+        var ss = document.getElementById("searchid");
+        var frm = document.searchformname;
+        var sotype =frm.engine;
+        ss.onclick=function(){
+            var keyword = frm.q.value;
+            for(var i=0;i<sotype.length;i++){
+                if(sotype[i].checked==true){
+                    var sovalue = sotype[i].value;
+                    console.log(keyword)
+                    if(sovalue==list[0]){
+                        window.location.href=bdurl+keyword;
+                    }else if(sovalue==list[1]){
+                        window.location.href=url360+keyword;
+                    }else if(sovalue==list[2]){
+                        window.location.href=urltb+keyword;
+                    }
+                }
+            }
+        }
+    }*/
+
+/*    function handersubmit(){
+        console.log("testt")
+        var frm = document.searchformname;
+        var sotype =frm.engine;
+        var keyword = frm.q.value;
+        for(var i=0;i<sotype.length;i++){
+            if(sotype[i].checked==true){
+                var sovalue = sotype[i].value;
+                console.log(keyword)
+                if(sovalue==list[0]){
+                    window.location.href=bdurl+keyword;
+                }else if(sovalue==list[1]){
+                    window.location.href=url360+keyword;
+                }else if(sovalue==list[2]){
+                    window.location.href=urltb+keyword;
+                }
+            }
+        }
+
+        return false;
+    }*/
+
+    function handerimg(){
+        var  radiosele = document.searchformname.engine;
+        var imgelea = document.getElementById("imgid");
+        for(var i=0;i<radiosele.length;i++){
+            radiosele[i].onclick= function () {
+                //切换图片
+                if(this.checked==true){
+                    var sovalue = this.value;
+                    if(sovalue==list[0]){
+                        imgelea.href=listurlhome[0]
+                        imgelea.firstElementChild.src="img/baidu.png";
+                    }else if(sovalue==list[1]){
+                        imgelea.href=listurlhome[1]
+                        var img = imgelea.firstElementChild;
+                        img.src="img/360.png";
+                        img.style.cssText="width:86px;"
+
+                    }else if(sovalue==list[2]){
+                        imgelea.href=listurlhome[2]
+                        imgelea.firstElementChild.src="img/taobao.png";
+                    }
+                }
+            }
+        }
+    }
+
+
+    window.onload=function(){
+//        search();
+        handerimg();
+    }
+</script>
+</body>
+</html>

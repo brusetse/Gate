@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        //事件原对象，你可以获取事件类型 事件触发元素  键盘按钮
+        function test(event){
+            console.log(window.event);
+            var evt = window.event||event;//解决浏览器的兼容问题
+            console.log(evt);
+            console.log(evt.type);
+            console.log(evt.keyCode);
+        }
+        function test01(event){
+            var evt = window.event||event;
+            console.log(evt.type);
+            console.log(evt.button);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" onclick="test(event)" value="测试">
+    <input type="button" onmousedown="test01(event)" value="测试onmousedown">
+    <input type="text" onkeyup="test(event)" value="测试onkeyup">
+    <input type="button" onclick="test(event);test01(event)" value="测试两个">
+</body>
+</html>

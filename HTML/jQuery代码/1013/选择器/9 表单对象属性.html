@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h3>表单对象属性过滤选择器</h3>
+<form>
+    <input type="button" value="test1" id="button1" class="test">
+    <input type="button" value="test2" id="button2" class="test">
+    <br/><br/>
+    可用元素：<input name="add" value="可用文本框"/><br/>
+    不可用元素：<input name="email" disabled="disabled" value="不可用文本框"/><br/>
+    可用元素：<input name="che" value="可用文本框"/><br/>
+    不可用元素：<input name="name" disabled="disabled" value="不可用文本框"/><br/><br/>
+    多选框：<br/>
+    <input type="checkbox" name="newsletter" checked="checked" value="test1">test1
+    <input type="checkbox" name="newsletter" value="test2">test2
+    <input type="checkbox" name="newsletter" value="test3">test3
+    <input type="checkbox" name="newsletter" checked="checked" value="test4">test4
+    <input type="checkbox" name="newsletter" value="test5">test5
+    <div></div>
+    <br/><br/>
+    下拉列表1：<br/>
+    <select name="test" multiple="multiple" style="height: 100px">
+        <option>北京</option>
+        <option selected="selected">上海</option>
+        <option>深圳</option>
+        <option selected="selected">广州</option>
+        <option>杭州</option>
+        <option>重庆</option>
+    </select>
+    <br/><br/>
+    下拉列表2：<br/>
+    <select name="test2">
+        <option>成都</option>
+        <option selected="selected">武汉</option>
+        <option>南京</option>
+        <option selected="selected">天津</option>
+        <option>厦门</option>
+        <option>青岛</option>
+    </select>
+    <br/><br/>
+    <div></div>
+    <div></div>
+</form>
+
+<script type="application/javascript" src="jquery1.8.3.js"></script>
+<script type="application/javascript">
+    $(function(){
+        //匹配所有可用元素
+        $("#button1").click(function(){
+            $("input:enabled").val("hello world");
+        });
+        //匹配所有不可用元素
+        $("#button2").click(function(){
+            $("input:disabled").val("welcome");
+        });
+        //匹配所有选中的被选中元素(复选框、单选框等，不包括select中的option)
+        $(":checkbox").click(function(){
+            $("div").html('<font color="blue"><b>'+$("input:checked").length+'</b></font>')
+        })
+        //匹配所有选中的option元素
+        $("select").change(function(){
+            var str = "";
+            $("select :selected").each(function(index,ele){
+                alert(index); //打印索引
+                alert($(this).text());
+                str += $(this).text() + ",";
+            })
+//            alert(str);
+            $('div:last').html("<b>"+str+"</b>");
+        })
+    });
+</script>
+</body>
+</html>

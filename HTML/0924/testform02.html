@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="testform001.html" onsubmit="test02()" onreset="test03()" method="get" name="regform01" id="formid01">
+    用户名：<input type="text" name="username" value="a"><br/>
+    密码：<input type="password" name="password"><br/>
+    密码确认：<input type="password" name="password"><br/>
+    性别：
+    <input type="radio" value="0" checked="checked" name="gender">男
+    <input type="radio" value="1" name="gender">女
+    <input type="radio" value="2" name="gender">不男不女<br>
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+
+</form>
+<input type="button" value="测试01" onclick="test01()">
+<input type="button" value="测试02" onclick="test02()">
+
+<script type="application/javascript">
+    function test01(){
+        var form01 = document.regform01;
+        var u = form01.username;
+//        u.disabled = true;
+        console.log(u.name);
+        console.log(u.type);
+        console.log(u.value);
+        console.log(u.defaultValue);
+        console.log(u.form);
+//        u.focus();
+        u.blur();
+    }
+//    window.setTimeout(test01,2000);
+    function test02(){
+        var gender01 = document.regform01.gender;
+        console.log(gender01);
+        for(var i=0;i<gender01.length;i++){
+            console.log(gender01[i].checked);
+            if(gender01[i].checked){
+                console.log(gender01[i].value);
+            }
+        }
+    }
+</script>
+</body>
+</html>

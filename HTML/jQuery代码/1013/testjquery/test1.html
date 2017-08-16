@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript" src="jquery1.8.3.js"></script>
+    <script type="application/javascript">
+//        $(document).ready(function(){
+//            alert("aaaa");
+//        })
+//        $(document).ready(function(){
+//            alert("bbbb");
+//        })
+//        $(function(){
+//            alert("cccc");
+//        })
+        $(function(){
+            var $div = $("div");
+            $("input").click(function(){
+                $("div").each(function(index,domEle){
+//                    alert(index+"-----"+domEle.innerHTML);
+
+                    //dom对象转jquery对象
+                    var $jqo = $(domEle);
+                    //jquery对象没有原生innerHTML，只有自带的html()方法
+//                    alert($jqo.html());
+                    //jquery对象转dom对象，两种方法
+                    //1，[index]，jquery对象是数组对象，里面的元素有原生属性
+//                    alert($jqo[0].innerHTML);
+                    //2，get(index)，调用jquery对象的方法
+                    alert($jqo.get(0).innerHTML);
+
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="test">
+<div>1111</div>
+<div>2222</div>
+<div>3333</div>
+</body>
+</html>

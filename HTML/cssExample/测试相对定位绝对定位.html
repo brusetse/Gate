@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+ <!--绝对定位总是相对于离他最近的上层元素设置了position:relative的位置,
+ relative是相对定位，即相对于标签原来所处的位置进行定位。如position:relative;left:100px;top:50px;则该标签移动后所处的位置为：
+ 相对于原来所占据的位置的上边界下移50px;
+ 相对于原来的左边界右移100px;而该标签在文档流中所占据的布局位置并不随之改变。而其他标签也不随该标签的位置改变而改变。
+ ,如果没有就相对应body ...... absolute脱离文档流  -->
+<div style="position:relative; border: 2px dashed #0F0; width:600px; background-color:#3FF">
+	<div>aaaaaaaaaaaaaaaaaaaa</div>
+    <div style="position:absolute; right:0px">bbbbbbbbbbbbbbbbbbbb</div>
+    <div>cccccccccccccccccccc</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .big{
+            width: 300px;
+            height: 400px;
+            background-color: #00CC33;
+        }
+        .tiny{
+            width: 200px;
+            height: 30px;
+            border: 1px red solid;
+        }
+    </style>
+    <script type="application/javascript">
+            function test01(){
+                console.log("tiny");
+            }
+            function test02(){
+                console.log("bigdiv");
+            }
+            window.onload=function(){
+                var bigdiv = document.getElementById("bigdiv");
+
+
+//               bigdiv.addEventListener("click",test02,true);
+//                统一冒泡 型事件
+//                bigdiv.addEventListener("click",test02,false);
+                if(bigdiv.addEventListener){
+                    bigdiv.addEventListener("click",test02,false);
+                }else{
+                    bigdiv.attachEvent("click",test02);
+                }
+            }
+        function cancelevt(){
+                var bigdiv = document.getElementById("bigdiv");
+//            bigdiv.removeEventListener("click",test02)
+            if(bigdiv.removeEventListener){
+                bigdiv.removeEventListener("click",test02,false);
+            }else{
+                bigdiv.detachEvent("click",test02);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="取消事件" id="input01" onclick="cancelevt();" >
+<div class="big" id="bigdiv" >
+    <div>aaaa</div>
+    <div class="tiny" id="divb" onclick="test01()" >bbbb</div>
+    <div>cccc</div>
+    <div>ddddd</div>
+</div>
+</body>
+</html>

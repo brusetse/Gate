@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .p1{
+            width: 200px;
+            height: 200px;
+            font-size: 50px;
+            color: darkslateblue;
+            background-color: azure;
+        }
+    </style>
+    <script type="application/javascript">
+        function testatt(){
+            var att1 = document.getElementsByTagName("span")[0];
+            console.log(att1);
+            att1.style.backgroundColor = "yellow";
+            att1.style.color = "#fff";
+        }
+        function testatt02(){
+            var att1 = document.getElementsByTagName("span")[0];
+            console.log(att1.getAttribute("class"));
+            att1.setAttribute("class","p1");
+        }
+        function testdiv(){
+            var div01 = document.getElementById("div01");
+            div01.innerHTML = "哈哈哈哈"
+            div01.className = "p1";
+            div01.style.cssText = "background-color:red;font-size:30px"
+        }
+        window.onload = function(){
+//            testatt();
+//            testatt02();
+            testdiv();
+        }
+    </script>
+</head>
+<body>
+<span style="width: 50px;height: 50px;font-size: 30px;color: #00CC33">span</span>
+<div class="1" id="div01">div</div>
+</body>
+</html>

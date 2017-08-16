@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function test(){
+            console.log(window.frames.length);
+        }
+        function showmsg(msg){
+            console.log("我是你爸！！！");
+            document.getElementById("div01").innerHTML=msg;
+        }
+        //让我们页面加载完之后再执行
+        window.onload=function(){
+            test();
+        }
+
+            function testson(){
+//                window.frames[0].son();
+                window.frames["f02"].son();
+            }
+    </script>
+</head>
+<body>
+<input type="button" value="调用儿子的函数" onclick="testson();">
+<div id="div01"></div>
+<iframe src="testpage02.html" name="f01"></iframe>
+<iframe src="testpage02.html" name="f02"></iframe>
+</body>
+</html>

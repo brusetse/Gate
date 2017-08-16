@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .big{
+            width: 300px;
+            height: 400px;
+            background-color: #00CC33;
+        }
+        .tiny{
+            width: 200px;
+            height: 30px;
+            border: 1px red solid;
+        }
+    </style>
+    <script type="application/javascript">
+        function test01(){
+            console.log("big")
+        }
+
+        function test02(event){
+            console.log("tiny")
+            //获取event
+            var evt = window.event||event;
+            //阻止事件冒泡
+//            evt.stopPropagation();
+            if(evt.stopPropagation){
+                console.log("stopPropagation")
+                evt.stopPropagation();
+            }else{
+                console.log("cancelBubble")
+                evt.cancelBubble=true;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="big" onclick="test01();">
+    <div>aaaa</div>
+    <div class="tiny" onclick="test02(event);">bbbb</div>
+    <div>cccc</div>
+    <div>ddddd</div>
+</div>
+</body>
+</html>

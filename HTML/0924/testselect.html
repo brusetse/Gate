@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name="reg" method="get" action="testselect.html">
+    开车了：<br>
+    <input type="checkbox" name="car" value="1">自行车<br>
+    <input type="checkbox" name="car" value="2">拖拉机<br>
+    <input type="checkbox" name="car" value="3">法拉利<br>
+    <input type="checkbox" name="car" value="4">灵车<br>
+    <select name="province">
+        <option value="1">省份</option>
+        <option value="2">广东省</option>
+        <option value="3">湖南省</option>
+        <option value="4">安徽省</option>
+    </select>
+</form>
+<input type="button" value="test" onclick="test01()">
+<input type="button" value="全选" onclick="test02()">
+<input type="button" value="全不选" onclick="test03()">
+<input type="button" value="反选" onclick="test04()">
+<input type="button" value="test02" onclick="test05()">
+
+<script type="application/javascript">
+    function test01(){
+        var fom = document.reg;
+        var car = fom.car;
+        for(var i=0;i<car.length;i++){
+            console.log(car[i].checked);
+        }
+    }
+    function test02(){
+        var fom = document.reg;
+        var car = fom.car;
+        for(var i=0;i<car.length;i++){
+            car[i].checked = true;
+        }
+    }
+    function test03(){
+        var fom = document.reg;
+        var car = fom.car;
+        for(var i=0;i<car.length;i++){
+            car[i].checked = false;
+        }
+    }
+    function test04(){
+        var fom = document.reg;
+        var car = fom.car;
+        for(var i=0;i<car.length;i++){
+            car[i].checked = !car[i].checked;
+        }
+    }
+    function test05(){
+        var province = document.reg.province;
+//        console.log(province.selectedIndex);
+//        console.log(province.selectedOptions);
+//        console.log(province.selectedOptions[0].value);
+        var ops = province.options;
+        for(var i=0;i<ops.length;i++){
+            console.log(ops[i].selected);
+            console.log(ops[i].value);
+            console.log(ops[i].text);
+        }
+    }
+</script>
+</body>
+</html>

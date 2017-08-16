@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .gaga{
+            border: dashed 1px red;
+            width: 300px;
+            height: 300px;
+            font-size: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body >
+<div class="tst" id="div001" >ttttttt</div>
+<span   style="width: 200px;height: 200px;display: block"  >test</span>
+<script type="application/javascript">
+    function testattr(){
+      var s1 = document.getElementsByTagName("span")[0];
+        console.log(s1)
+        //注意：样式属性把-去掉 然后把后面的字母改为大写
+        s1.style.backgroundColor="blue";
+        s1.style.color="#fff"
+        console.log(s1.getAttribute("class"))
+        s1.setAttribute("class","gaga")
+
+    }
+    function testdiv(){
+        var div001 = document.getElementById("div001");
+        div001.innerHTML="<a href='testdom01.html'>国庆放假吗？</a>"
+        div001.className="gaga"
+        div001.style.cssText="background-color:red;font-size:30px;font-weight:bold"
+    }
+    window.onload=function(){
+//        testattr();
+        testdiv();
+    }
+
+</script>
+</body>
+</html>

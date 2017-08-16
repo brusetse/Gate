@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+
+//        Number.prototype.add = function(a){
+//            return this+a;
+//        }
+//        var n1 = new Number(123);
+//        console.log(p1.add(123));
+
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.sayName = function(){
+            console.log(this.name)
+        }
+        var p1 = new Person("zhangsan",20);
+        var p2 = new Person("lisi",25);
+        console.log(Person);
+        p1.sayName();
+        p2.sayName();
+//        prototype是所有实例共享的一块内存区域
+        console.log(p1.__proto__==Person.prototype)
+        console.log(p2.__proto__==Person.prototype)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

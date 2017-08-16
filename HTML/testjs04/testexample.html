@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" action="testexample.html">
+    <input type="file"> <input type="button" value="添加" id="btnadd">
+    <div id="containerid"></div>
+    <input type="submit" value="上传文件">
+
+</form>
+
+<script type="application/javascript" >
+    window.onload=function(){
+        var btnadd  = document.getElementById("btnadd");
+        btnadd.onclick=function(){
+            var container = document.getElementById("containerid");
+
+            var input = document.createElement("input");
+            input.type="file";
+            var btndel = document.createElement("input");
+            btndel.type="button";
+            btndel.value="删除"
+            var br = document.createElement("br");
+            btndel.onclick=function(){
+                container.removeChild(input)
+                container.removeChild(btndel)
+                container.removeChild(br)
+            }
+//            container.appendChild(input);
+//            container.appendChild(btndel);
+//            container.appendChild(br);
+            container.insertBefore(br,container.firstChild);
+            container.insertBefore(btndel,container.firstChild);
+            container.insertBefore(input,container.firstChild);
+
+        }
+    }
+</script>
+</body>
+</html>

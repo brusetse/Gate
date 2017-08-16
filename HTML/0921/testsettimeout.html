@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var count = 0;
+        var tid;
+        function test(){
+            console.log(count++);
+            //延时多久之后执行函数
+            tid = window.setTimeout(test,1000);
+        }
+        tid = window.setTimeout(test,1000);
+        function stoptimeout(){
+            window.clearTimeout(tid);
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="stop" onclick="stoptimeout()">
+</body>
+</html>

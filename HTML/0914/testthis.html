@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var t1 = 123;
+        function test01(){
+            this.t1 = "asfds";
+        }
+        function test02(){
+            this.t2 = "11111";
+        }
+        //this指向window对象
+//        test01();//等同于window.test01()
+//        console.log(t1);
+
+        var p1 = new test01();
+        console.log(t1);
+        console.log(p1.t1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

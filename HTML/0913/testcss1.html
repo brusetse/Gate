@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>testcss1</title>
+    <!--外部样式表-->
+    <link rel="stylesheet" href="demo1.css">
+    <!--嵌入式样式表-->
+    <style type="text/css">
+        p1{
+            color: aqua;
+        }
+        /*id选择器*/
+        #testid{
+            color: #00FF00;
+            background-color: antiquewhite;
+            width: 200px;
+        }
+        /*包含选择器*/
+        #testid test2{
+            color: #FF0000;
+            background-color: #0000FF;
+            width: 200px;
+        }
+        a:link {color: #FF0000}		/* 未访问的链接 */
+        a:visited {color: #00FF00}	/* 已访问的链接 */
+        a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+        a:active {color: #0000FF}	/* 选定的链接 */
+    </style>
+
+</head>
+<body>
+<div><h1>外部样式表</h1></div>
+<div><p1>嵌入式样式表</p1></div>
+<div style="color: yellow">内联样式</div>
+<div class="product">类选择器</div>
+<div id="testid">id选择器</div>
+<div id="testid">
+    <test2>包含选择器</test2>
+</div>
+<div><span class="text text2">
+    选择多类
+    如果想要把某一个样式应用到不同的 HTML 元素上，可以采用类选择器来定义，然后在
+    不同标签中应用它们。
+    格式 1：  .类名  {  属性:  值; }
+    格式 2：元素.类名  {  属性:  值; }
+</span></div>
+<a href="http://baidu.com">百度</a>
+</body>
+</html>

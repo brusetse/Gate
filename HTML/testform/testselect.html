@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<form name="reg" method="get" action="test.html" >
+驾驶技术:<br>
+<input type="checkbox" name="hobby" value="1">开车</input><br>
+<input type="checkbox" name="hobby" value="2">开飞机</input><br>
+<input type="checkbox" name="hobby" value="3">开坦克</input><br>
+<input type="checkbox" name="hobby" value="4">开轮船</input><br>
+
+    <select name="province">
+        <option value="0">省份</option>
+        <option value="1" selected="selected">广东省</option>
+        <option value="2">湖南省</option>
+        <option value="3">江苏省</option>
+    </select>
+</form>
+<input type="button" value="test" onclick="test();">
+<input type="button" value="全选" onclick="test1();">
+<input type="button" value="全不选" onclick="test2();">
+<input type="button" value="反选" onclick="test3();">
+<input type="button" value="test" onclick="test4();">
+<script type="application/javascript">
+    function test(){
+        var frm = document.reg;
+        var hobby = frm.hobby;
+        for(var i=0;i<hobby.length;i++){
+            console.log(hobby[i].checked)
+        }
+    }
+    function test1(){
+        var frm = document.reg;
+        var hobby = frm.hobby;
+        for(var i=0;i<hobby.length;i++){
+            console.log(hobby[i].checked)
+            hobby[i].checked=true;
+        }
+    }
+    function test2(){
+        var frm = document.reg;
+        var hobby = frm.hobby;
+        for(var i=0;i<hobby.length;i++){
+            console.log(hobby[i].checked)
+            hobby[i].checked=false;
+        }
+    }
+    function test3(){
+        var frm = document.reg;
+        var hobby = frm.hobby;
+        for(var i=0;i<hobby.length;i++){
+            hobby[i].checked=!hobby[i].checked;
+            console.log(hobby[i].value)
+        }
+    }
+
+    function test4(){
+        var frm = document.reg;
+        var provicne = frm.province;
+        console.log(provicne.value);
+//        console.log(provicne.selectedIndex);
+//        console.log(provicne.selectedIndex);
+//        console.log(provicne.selectedOptions);
+//        console.log(provicne.selectedOptions[0].value);
+//        var ops = provicne.options;
+//         provicne.options.length=2;
+//        for(var i=0;i<ops.length;i++){
+//            console.log(ops[i].selected)
+//            console.log(ops[i].value)
+//            console.log(ops[i].text)
+//        }
+    }
+</script>
+</body>
+</html>

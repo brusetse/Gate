@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .big{
+            width: 200px;
+            height: 200px;
+            background-color: #0000FF;
+        }
+        .tiny{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script type="application/javascript">
+        function testbig(){
+            console.log("big");
+        }
+        function testtiny(){
+            console.log("tiny");
+        }
+        window.onload = function(){
+            var divb = document.getElementById("divb");
+            if(divb.addEventListener){
+                //从里到外 冒泡 false 如果从外到里 true
+                divb.addEventListener("click",testbig,false);
+            }else{
+                //老方法 只能添加冒泡
+                divb.attachEvent("click",testbig)
+            }
+        }
+        //移除事件
+        function cancelevt(){
+            var divb = document.getElementById("divb");
+            if(divb.removeEventListener){
+                divb.removeEventListener("click",testbig,false);
+            }else{
+                divb.detachEvent("click",testbig)
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="取消事件" onclick="cancelevt()">
+<div class="big" id="divb">
+    <div>aaaa</div>
+    <div class="tiny" id="divt" onclick="testtiny()">bbbb</div>
+    <div>cccc</div>
+</div>
+</body>
+</html>

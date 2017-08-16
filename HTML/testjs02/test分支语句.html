@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript" >
+        var t=123;
+        var t2 ='gaga';
+        t3=66;//不建议这么写
+        function test(){
+            var gag=123;
+            if(t>100){
+                console.log('100')
+            }else if(t>200){
+                console.log('200')
+
+            }else{
+
+                console.log('other')
+            }
+            u = 1237;
+        }
+//函数执行后  就会对全局变量u进行了初始化，后面你就可以使用了!
+//        test();
+//        console.log(u)
+//        console.log(t3)
+
+
+//        js声明有点像java  hashmap对象
+//        js  json
+        var user={uname:'cai10',favs:['吃饭','看电影'],age:123};
+//        console.log(user.uname)
+//        console.log(user.favs)
+//        console.log(user.age)
+
+        var users=[user,123,'gaga'];
+//        console.log(users[0])
+//        console.log(users[1])
+//        console.log(users[2])
+//for in都是拿到下标！！！
+//        for(var i=0;i<users.length;i++){
+//            console.log(users[i])
+//        }
+//        for(var u in  user){
+//            console.log(u,user[u]);
+//        }
+//        for(var u in  users){
+//            console.log(users[u]);
+//        }
+
+        function testswitch(a){
+            switch (a){
+                case 1:
+                    console.debug('值等于1');
+                    break;
+                case 2:
+                    console.info('值等于2');
+                    break;
+                case 3:
+                    console.warn('值等于3');
+                    break;
+
+                default :
+                    console.error('default');
+            }
+        }
+//        testswitch(1);
+//        testswitch(2);
+//        testswitch(3);
+//        testswitch(123);
+
+        var sum=0;
+        function testsum(){
+            for(var i=0;i<10;i++){
+                sum+=i;
+            }
+        }
+//        testsum();
+
+    </script>
+</head>
+<body>
+<input type="button" onclick="testsum();" value="测试sum">
+</body>
+</html>

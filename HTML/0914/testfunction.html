@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function test01(a,b){
+            console.log(a+b);
+            return a+b;
+        }
+//        test01(123,123);
+//        构造Function函数
+//        var add01 = new Function("a","b","alert(a+b)");
+//        add01(123,123);
+
+        function test02(){
+            alert(111);
+        }
+//        声明覆盖
+        var test02 = function(){
+            alert(2222);
+        }
+        test02();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

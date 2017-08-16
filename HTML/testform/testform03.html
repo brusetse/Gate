@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="testform001.html"  onreset="test03();"  method="get" name="regform01" id="formid01">
+    用户名：<input type="text" name="username" value="zs" ><br>
+    密码：<input type="password" name="password" ><br>
+    密码确认：<input type="password" name="password" ><br>
+    <input type="submit" value="注册" onclick="return test02();"><br>
+    <input type="reset" value="重置"><br>
+
+</form>
+<input type="button" value="测试01" onclick="test01();">
+
+
+<script type="application/javascript">
+    function test01(){
+//        获取表单对象
+//        var form01 = document.forms[0];//获取到第一个表单对象
+//        var form01 = document.forms["regform01"];//获取到第一个表单对象
+//        var form01 = document.getElementById("formid01");//获取到第一个表单对象
+//        var form01 = document.getElementsByTagName("form")[0];
+//        var form01 = document.getElementsByName("regform01")[0];
+        var form01 = document.regform01;
+        console.log(form01);
+        console.log(form01.name)
+        console.log(form01.method)
+        console.log(form01.action)
+        console.log(form01.elements)
+        console.log(form01.length)
+        var username = form01.elements[0].value;
+        console.log(username)
+        if(username.length>=5){
+            form01.submit();
+        }else{
+            form01.reset();
+        }
+    }
+    function test03(){
+        console.log("reset")
+    }
+    function test02(){
+        console.log("onsubmit");
+        return false;//返回true 正常提交  返回false 不让你提交
+    }
+    window.onload=function(){
+//        test01();
+    }
+</script>
+</body>
+</html>

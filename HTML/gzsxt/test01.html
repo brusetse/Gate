@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+ 
+<title>典型的head</title> 
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<!--<meta http-equiv="refresh" content="5;URL=http://www.163.com">-->
+
+<meta name="author" content="zhangsan">
+<meta name="keywords" content="JAVA,学习,培训 ">
+<meta name="description " content=“关于北京地区java培训的介绍">
+
+<link rel="Bookmark" type="image/x-icon" href="favicon.ico"/> 
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+<!--<link rel="stylesheet" type="text/css" href="css/pagination.css" />
+<script type="text/javascript" src="js/search.js"></script>-->
+</head>
+ 
+
+<body>
+<h1>h1的内容</h1>
+<h2>哈哈哈哈h2</h2>
+<h3>h3</h3>
+
+<h6>tesetstest</h6>
+
+<hr/>
+<b>粗体</b>
+<i>斜体</i>
+<u>gagag</u>
+<del>gagag</del>
+
+<pre>
+public static void testInsert(){
+//		在公司里面注意修改ip地址 注意修改数据库名 orcl （比如是memeda）
+		String url = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+		
+//		用户名和密码
+		String username = "scott";
+	
+		String password="tiger";
+		
+		
+		Connection connection = null;
+		try {
+//		第一步：装载驱动  （驱动程序oracle公司实现，按照jdbc标准实现）
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+//  第二部获取数据库链接对象
+			connection = DriverManager.getConnection(url, username, password);
+			
+			System.out.println(connection);
+// 创建一个序列
+//			获取statement静态处理对象
+			Statement sta = connection.createStatement();
+//			用户表主键
+//			
+			String sql = "insert into sxt_user(id,username,password) values(seq_user_id.nextval,'cai10','123123')";
+			
+			int rs = sta.executeUpdate(sql);
+			System.out.println(rs);
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			if (connection!=null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	</pre>
+    
+    <font  size="7" color="red" >这是一段文字</font>	
+    
+    
+    tstgagagaga
+    <br/>
+    
+    <marquee  direction="right" width="200px"  behavior= "alternate" >你们太帅了！！！！</marquee>
+    tstgagagaga
+    
+  <marquee  direction="down" width="200px" height="500px" Scrollamount="50">你们太帅了！！！！</marquee>
+</body>
+</html>

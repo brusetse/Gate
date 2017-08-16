@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="testform001.html" onsubmit="test02()" onreset="test03()" method="get" name="regform01" id="formid01">
+    用户名：<input type="text" name="username" value="a"><br/>
+    密码：<input type="password" name="password"><br/>
+    密码确认：<input type="password" name="password"><br/>
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+
+</form>
+
+<input type="button" value="测试01" onclick="test01()">
+
+<script type="application/javascript">
+    function test01(){
+//        var form01 = document.forms[0];
+//        var form01 = document.forms["regform01"];
+//        var form01 = document.getElementById("formid01");
+//        var form01 = document.getElementsByTagName("form")[0];
+//        var form01 = document.getElementsByName("regform01")[0];
+        var form01 = document.regform01;
+        console.log(form01);
+        console.log(form01.action);
+        console.log(form01.elements);
+        console.log(form01.length);
+        console.log(form01.method);
+        console.log(form01.name);
+        var username = form01.elements[0].value;
+        if(username.length>=5){
+            form01.submit();
+        }else{
+            form01.reset();
+        }
+    }
+    function test02(){
+        console.log("提交");
+        return true;
+    }
+    function test03(){
+        console.log("重置");
+    }
+    window.onload = function(){
+//        test01();
+    }
+</script>
+</body>
+</html>

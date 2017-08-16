@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        var count=0;
+        var tid;
+        function test(){
+            console.log(count++)
+
+        }
+        function add(a,b){
+            console.log(a+b+(count++));
+
+        }
+        function showmsg(){
+            var div01 = document.getElementById("div01");
+//            console.log(div01.innerHTML)
+            div01.innerHTML=++count;
+            tid = window.setTimeout(showmsg,1000);
+        }
+        window.onload=function(){
+
+        }
+
+        function starttimeout(){
+//            showmsg();
+            tid = window.setTimeout(showmsg,1000);
+        }
+        function stoptimeout(){
+            window.clearTimeout(tid)
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="start" onclick="starttimeout();">
+<input type="button" value="stop" onclick="stoptimeout();">
+<div style="font-size: 30px;color: red;font-weight: bold;border: dashed 1px red;width: 100px;height: 100px;text-align: center" id="div01">
+1
+</div>
+</body>
+</html>

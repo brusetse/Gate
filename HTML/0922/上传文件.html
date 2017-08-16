@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        window.onload = function(){
+            var add01 = document.getElementById("add01");
+            add01.onclick = function(){
+                var newf = document.createElement("input");
+                var br = document.createElement("br");
+                var container = document.getElementById("container");
+                var newd = document.createElement("input");
+//                container.appendChild(newf);
+//                container.appendChild(newd);
+//                container.appendChild(br);
+                container.insertBefore(br,container.firstChild);
+                container.insertBefore(newd,container.firstChild);
+                container.insertBefore(newf,container.firstChild);
+                newf.type = "file";
+                newd.type = "button";
+                newd.value = "删除";
+                newd.onclick = function(){
+                    container.removeChild(newf);
+                    container.removeChild(newd);
+                    container.removeChild(br);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" action="上传文件.html">
+    <input type="file">
+    <input type="button" value="添加" id="add01">
+    <div id="container"></div>
+    <input type="submit" value="上传文件">
+</form>
+</body>
+</html>

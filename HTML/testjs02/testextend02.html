@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            this.go=function(){
+                console.log("能跑！")
+            }
+        }
+        function Man(gender){
+            this.gender = gender;
+            this.method=Person;//当前对象有一个属性methond 指向 Person函数对象
+            this.method("zs",88)//this 指向 man构造的对象 methond 指向 Person函数对象
+            delete this.method;
+        }
+        var m1 = new Man("m");
+        console.log(m1.name)
+        console.log(m1)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

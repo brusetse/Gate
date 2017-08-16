@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--导入jquery库-->
+    <script type="text/javascript" src="jquery1.8.3.js"></script>
+    <script type="text/javascript" >
+        //window.onload 只能执行一次，后边会把前边覆盖掉
+//      window.onload = function(){
+//          alert("11111111");
+//      }
+//      window.onload = function(){
+//          alert("22222222");
+//      }
+//     $(document).ready(function(){
+//            alert("3333333333");
+//        })
+//     $(document).ready(function(){
+//            alert("4444444444444");
+//        })
+
+        $(function(){
+//            alert("我是简写");
+
+            var $a= $("a");
+//            alert($a);
+            $("input").click(function(){
+//                alert("dddddd");
+
+                $("a").each(function(index,domEle){
+//                    alert(index+"--------"+domEle.innerHTML);
+
+                    //dom对象转换成jQuery对象
+                    var $jqo=$(domEle);
+//                    alert($jqo.html());
+                    //jquery对象转DOM对象
+//                    alert($jqo[0].innerHTML);
+                    alert($jqo.get(0).innerHTML);
+//                    alert(domEle.html());
+                })
+
+            });
+
+        })
+
+
+    </script>
+</head>
+<body>
+     <input type="button" id="btn1" value="btn" />
+
+    <a href="https://www.baidu.com/index.php?tn=monline_3_dg">baidu1</a>
+    <a href="https://www.baidu.com/index.php?tn=monline_3_dg">baidu2</a>
+    <a href="https://www.baidu.com/index.php?tn=monline_3_dg">baidu3</a>
+</body>
+</html>

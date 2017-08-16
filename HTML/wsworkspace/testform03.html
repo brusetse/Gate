@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="application/javascript">
+        function test(){
+
+            alert("gaga");
+        }
+
+    </script>
+</head>
+<body>
+<!--get是把提交的数据放在action-指定的地址后面
+get 只适合上传提交小的文本数据
+-->
+<!--application/x-www-form-urlencoded  对非文件上传使用表单-->
+<!--
+enctype=multipart/form-data
+有文件上传的时候必须设置
+methon=post
+可以提交大量数据
+
+如果有密码类型数据   method 建议使用 post
+
+radio 如果同一组 必须name一样
+sex=on 没有指定vlaue 默认值是on
+
+-->
+<form name="userregister" action="testform.html" method="get" >
+    用户名：<input type="text" name="username"> <br/>
+    手机号：<input type="text" name="phone" value="18688888888"> <br/>
+    密码：<input type="password" name="pwd">  <br/>
+    确认密码：<input type="password" >  <br/>
+    性别：
+
+    <input type="radio" name="sex" value="1"  checked="checked" >男<input type="radio" name="sex" value="0">女
+    <input type="radio" name="sex" value="2" >保密 <br/>
+    爱好：
+    <input type="checkbox" name="favs" value="1" checked="checked"> 吃饭
+    <input type="checkbox" name="favs" value="2" > 睡觉
+    <input type="checkbox" name="favs" value="3" > 打小怪兽
+    <br/>
+
+    <input type="hidden" name="userid" value="9090">
+    地址：
+    <select name="province">
+        <option value="1">广东省</option>
+        <option value="2" selected="selected">湖南省</option>
+        <option value="3">火星</option>
+    </select>
+    <br/>
+    自我介绍：
+    <textarea name="desc" rows="10" cols="50"></textarea>
+    <br/>
+    <input type="button" value="校验用户名" onclick="test();">
+    <input type="submit" value="注册">
+    <input type="reset" value="重置">
+</form>
+</body>
+</html>

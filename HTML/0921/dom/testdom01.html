@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .big{
+            width: 200px;
+            height: 200px;
+            background-color: #0000FF;
+        }
+        .tiny{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script type="application/javascript">
+        //使用document.getElementById()引用指定id的结点
+        function testdom01(){
+            var divb = document.getElementById("divb");
+            divb.style.display = "none";
+        }
+        function testdom02(){
+            var divb = document.getElementById("divb");
+            divb.style.display = "block";
+        }
+        //使用document.getElementsByTagName(“a”)，将所有<a>元素结点放到一个数组中返回
+        function testtagname(){
+            var eles = document.getElementsByTagName("div");
+            for(var i = 0 ; i < eles.length ; i++){
+                //元素 nodeName 标签名  nodeValue null   元素类型 nodeType =1
+                console.log(eles[i].nodeName,eles[i].nodeValue,eles[i].nodeType);
+            }
+        }
+        window.onload = function(){
+//            testtagname();
+//            testdom03();
+//            testdom04();
+//            testName()
+            testsibling()
+        }
+        function testdom03(){
+            var ele1 = document.getElementById("divb");
+            //每个结点都有一个childNodes集合属性，类型是数组对象，表示该结点的所有子结点的集合
+            var childs = ele1.childNodes;
+            for(var i = 0 ; i < childs.length ; i++){
+                console.log(childs[i].nodeName,childs[i].nodeValue,childs[i].nodeType)
+            }
+        }
+        function testdom04(){
+            var ele1 = document.getElementById("divb");
+            var attrs = ele1.attributes;
+            for(var i = 0 ; i < attrs.length ; i++){
+                console.log(attrs[i].nodeName,attrs[i].nodeValue,attrs[i].nodeType)
+            }
+        }
+        function testName(){
+            var favs = document.getElementsByName("favs");
+            for(var i = 0 ; i < favs.length ; i++){
+                console.log(favs[i].nodeName,favs[i].nodeValue,favs[i].nodeType)
+            }
+        }
+        // 兄弟结点
+        function testsibling(){
+            var divt = document.getElementById("divt");
+            console.log(divt.nextSibling);//下一个兄弟结点
+            console.log(divt.nextElementSibling);//下一个兄弟元素结点
+            console.log(divt.previousSibling);//上一个兄弟结点
+            console.log(divt.previousElementSibling);//上一个兄弟元素结点
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="隐藏" onclick="testdom01()" >
+<input type="button" value="显示" onclick="testdom02()">
+<input type="button" value="隐藏" onclick="testName();" name="favs">
+<div class="big" id="divb">
+    <div>aaaa</div>
+    <div class="tiny" id="divt">bbbb</div>
+    <div>cccc</div>
+</div>
+</body>
+</html>
