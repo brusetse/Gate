@@ -12,12 +12,6 @@
     <artifactId>Basic</artifactId>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.oracle/classes12 -->
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>classes12</artifactId>
-            <version>10.2.0.2.0</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
         <dependency>
             <groupId>com.mchange</groupId>
