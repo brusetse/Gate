@@ -15,7 +15,7 @@ public class UserServer {
 
 		InputStream is = client.getInputStream();
 		ObjectInputStream ois = new ObjectInputStream(is);
-		User u = (User) ois.readObject();
+		com.bruse.course.net.User u = (com.bruse.course.net.User) ois.readObject();
 		OutputStream os = client.getOutputStream();
 		client.shutdownInput();
 
