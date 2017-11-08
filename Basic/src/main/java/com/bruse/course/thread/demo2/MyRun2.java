@@ -2,7 +2,6 @@ package com.bruse.course.thread.demo2;
 
 public class MyRun2 implements Runnable{
 
-	@Override
 	public void run() {
 		
 		try {
