@@ -40,13 +40,13 @@ public class Demo {
 //		String s2 = "i hate you";
 //		System.out.println(s1.concat(s2));
 
-//		StringBuffer s1 = new StringBuffer("i want you");
-//		StringBuffer s2 = new StringBuffer(" but i don't like you");
-//		s1.append(s2);
-//		s1.insert(6, s2);
-//		s1.delete(1, 2);
-//		s1.replace(2, 6, s2);
-//		System.out.println(s1);
+		StringBuffer s1 = new StringBuffer("i want you");
+		StringBuffer s2 = new StringBuffer(" but i don't like you");
+		s1.append(s2);
+		s1.insert(6, s2);
+		s1.delete(1, 2);
+		s1.replace(2, 6, s2.toString());
+		System.out.println(s1);
 
 //		System.out.println(Float.MIN_VALUE);
 
