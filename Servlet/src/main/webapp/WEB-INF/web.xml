@@ -1,0 +1,258 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- servlet -->
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>com.bruse.servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>demo</servlet-name>
+    <servlet-class>com.bruse.servlet.DemoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>test</servlet-name>
+    <servlet-class>com.bruse.servlet.TestRequest</servlet-class>
+  </servlet>
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>com.bruse.net.DownloadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestRedirect01</servlet-name>
+    <servlet-class>com.bruse.net.TestRedirect</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestContext</servlet-name>
+    <servlet-class>com.bruse.net.TestContext</servlet-class>
+    <init-param>
+      <param-name>uname</param-name>
+      <param-value>zs</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pwd</param-name>
+      <param-value>1234</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>TestParam</servlet-name>
+    <servlet-class>com.bruse.net.TestParam</servlet-class>
+    <init-param>
+      <param-name>uname</param-name>
+      <param-value>zs</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pwd</param-name>
+      <param-value>1234</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>TestCookie</servlet-name>
+    <servlet-class>com.bruse.net.TestCookie</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestSession</servlet-name>
+    <servlet-class>com.bruse.net.TestSession</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestRedirectTwo</servlet-name>
+    <servlet-class>com.bruse.net.TestRedirectTwo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestForward</servlet-name>
+    <servlet-class>com.bruse.net.TestForward</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestForwardTwo</servlet-name>
+    <servlet-class>com.bruse.net.TestForwardTwo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestEncoding</servlet-name>
+    <servlet-class>com.bruse.net.TestEncoding</servlet-class>
+  </servlet>
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>LoginPage</servlet-name>
+    <servlet-class>com.bruse.login.action.LoginPage</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HandleLogin</servlet-name>
+    <servlet-class>com.bruse.login.action.HandleLogin</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Success</servlet-name>
+    <servlet-class>com.bruse.login.action.Success</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Exit</servlet-name>
+    <servlet-class>com.bruse.login.action.Exit</servlet-class>
+  </servlet>
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>Testel</servlet-name>
+    <servlet-class>com.bruse.el.action.Testel</servlet-class>
+  </servlet>
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>TestAjax</servlet-name>
+    <servlet-class>com.bruse.ajax.one.action.TestAjax</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StudentServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.one.action.StudentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>StudentQuery</servlet-name>
+    <servlet-class>com.bruse.ajax.one.action.StudentQuery</servlet-class>
+  </servlet>
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>ProvinceServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.two.action.ProvinceServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CityServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.two.action.CityServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AreaServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.two.action.AreaServlet</servlet-class>
+  </servlet>
+  <!-- 分割线 -->
+  <servlet>
+    <servlet-name>AjaxServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.three.action.AjaxServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ClearServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.three.action.ClearServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FreshServlet</servlet-name>
+    <servlet-class>com.bruse.ajax.three.action.FreshServlet</servlet-class>
+  </servlet>
+
+  <!-- servlet-mapping -->
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>demo</servlet-name>
+    <url-pattern>/demo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/download</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestRedirect01</servlet-name>
+    <url-pattern>/servlet/testr01</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestContext</servlet-name>
+    <url-pattern>/servlet/testContext</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestParam</servlet-name>
+    <url-pattern>/servlet/testParam</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestCookie</servlet-name>
+    <url-pattern>/servlet/testCookie</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestSession</servlet-name>
+    <url-pattern>/servlet/TestSession</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestRedirectTwo</servlet-name>
+    <url-pattern>/servlet/testRedirectTwo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestForward</servlet-name>
+    <url-pattern>/servlet/testforward</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestForwardTwo</servlet-name>
+    <url-pattern>/servlet/testForwardTwo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestEncoding</servlet-name>
+    <url-pattern>/servlet/TestEncoding</url-pattern>
+  </servlet-mapping>
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>LoginPage</servlet-name>
+    <url-pattern>/servlet/LoginPage</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HandleLogin</servlet-name>
+    <url-pattern>/servlet/HandleLogin</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Success</servlet-name>
+    <url-pattern>/servlet/Success</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Exit</servlet-name>
+    <url-pattern>/servlet/Exit</url-pattern>
+  </servlet-mapping>
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>Testel</servlet-name>
+    <url-pattern>/servlet/Testel</url-pattern>
+  </servlet-mapping>
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>TestAjax</servlet-name>
+    <url-pattern>/testAjax</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/studentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentQuery</servlet-name>
+    <url-pattern>/studentQuery</url-pattern>
+  </servlet-mapping>
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>ProvinceServlet</servlet-name>
+    <url-pattern>/provinceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CityServlet</servlet-name>
+    <url-pattern>/cityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AreaServlet</servlet-name>
+    <url-pattern>/areaServlet</url-pattern>
+  </servlet-mapping>
+  <!-- 分割线 -->
+  <servlet-mapping>
+    <servlet-name>AjaxServlet</servlet-name>
+    <url-pattern>/ajaxServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ClearServlet</servlet-name>
+    <url-pattern>/clearServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FreshServlet</servlet-name>
+    <url-pattern>/freshServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
