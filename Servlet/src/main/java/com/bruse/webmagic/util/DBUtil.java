@@ -1,4 +1,4 @@
-package com.bruse.regex.webmagic.util;
+package com.bruse.webmagic.util;
 
 import java.sql.Statement;
 import java.sql.Connection;

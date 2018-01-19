@@ -1,4 +1,4 @@
-package com.bruse.regex.webmagic.action;
+package com.bruse.webmagic.action;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
